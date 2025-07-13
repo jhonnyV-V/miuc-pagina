@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inicio de Sesión - Congregación</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -42,16 +44,16 @@
       text-align: center;
     }
 
-   .logo {
-  font-family: 'Poppins', sans-serif;
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--amarillo);
-  margin-bottom: 0.001rem;
-  text-align: center;
-  letter-spacing: 3px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--amarillo);
+      margin-bottom: 0.001rem;
+      text-align: center;
+      letter-spacing: 3px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
 
     .input-group {
       margin-bottom: 1rem;
@@ -97,13 +99,13 @@
       text-decoration: none;
     }
 
-.verse-slider {
-  margin-top: 2rem;
-  font-style: italic;
-  font-size: 0.95rem;
-  color: #444;
-  transition: opacity 0.5s ease-in-out;
-}
+    .verse-slider {
+      margin-top: 2rem;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #444;
+      transition: opacity 0.5s ease-in-out;
+    }
 
     @media (max-width: 480px) {
       .login-container {
@@ -112,53 +114,8 @@
     }
   </style>
 </head>
+
 <body>
-  <div class="login-container">
-    <img
-      src="./assets/images/miuc.png"
-      width="250px"
-      height="62.50px"
-      alt=""
-    >
-    <form>
-      <div class="input-group">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" placeholder="tucorreo@ejemplo.com" required />
-      </div>
-      <div class="input-group">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" placeholder="••••••••" required />
-      </div>
-      <button type="submit" class="login-button">Iniciar Sesión</button>
-    </form>
-    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
-
-    <div class="verse-slider">
-      “El Señor es mi luz y mi salvación; ¿a quién temeré?” – Salmo 27:1
-    </div>
-  </div>
-  <script>
-  const verses = [
-    "“El Señor es mi luz y mi salvación; ¿a quién temeré?” – Salmo 27:1",
-    "“Todo lo puedo en Cristo que me fortalece.” – Filipenses 4:13",
-    "“El que habita al abrigo del Altísimo morará bajo la sombra del Omnipotente.” – Salmo 91:1",
-    "“Confía en el Señor con todo tu corazón y no te apoyes en tu propia prudencia.” – Proverbios 3:5",
-    "“Yo soy el camino, la verdad y la vida.” – Juan 14:6"
-  ];
-
-  let index = 0;
-  const verseElement = document.querySelector('.verse-slider');
-
-  function changeVerse() {
-    verseElement.style.opacity = 0;
-    setTimeout(() => {
-      index = (index + 1) % verses.length;
-      verseElement.textContent = verses[index];
-      verseElement.style.opacity = 1;
-    }, 500);
-  }
-
-  setInterval(changeVerse, 10000); // Cambia cada 10 segundos
-</script>
 </body>
+
 </html>
