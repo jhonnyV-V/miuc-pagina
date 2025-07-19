@@ -1,14 +1,17 @@
 import {
+  HeadContent,
   createFileRoute,
   redirect,
   useRouter,
   useRouterState,
 } from '@tanstack/react-router'
+
 import * as React from 'react'
 import { z } from 'zod'
 
 import { useAuth } from '../auth'
 import { sleep } from '../utils'
+import { LoginForm } from '@/components/demo.login'
 
 const fallback = '/dashboard' as const
 
@@ -22,6 +25,9 @@ export const Route = createFileRoute('/login')({
     }
   },
   component: LoginComponent,
+  head: () => ({
+    meta: [{ title: 'Inicio de Sesión - Congregación' }],
+  }),
 })
 
 function LoginComponent() {
@@ -38,11 +44,11 @@ function LoginComponent() {
     try {
       evt.preventDefault()
       const data = new FormData(evt.currentTarget)
-      const fieldValue = data.get('username')
+      const fieldValue = data.get('email')
 
       if (!fieldValue) return
-      const username = fieldValue.toString()
-      await auth.login(username)
+      const email = fieldValue.toString()
+      await auth.login(email)
 
       await router.invalidate()
 
@@ -61,36 +67,18 @@ function LoginComponent() {
   const isLoggingIn = isLoading || isSubmitting
 
   return (
-    <div className="p-2 grid gap-2 place-items-center">
-      <h3 className="text-xl">Login page</h3>
-      {search.redirect ? (
-        <p className="text-red-500">You need to login to access this page.</p>
-      ) : (
-        <p>Login to see all the cool content in here.</p>
-      )}
-      <form className="mt-4 max-w-lg" onSubmit={onFormSubmit}>
-        <fieldset disabled={isLoggingIn} className="w-full grid gap-2">
-          <div className="grid gap-2 items-center min-w-[300px]">
-            <label htmlFor="username-input" className="text-sm font-medium">
-              Username
-            </label>
-            <input
-              id="username-input"
-              name="username"
-              placeholder="Enter your name"
-              type="text"
-              className="border rounded-md p-2 w-full"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded-md w-full disabled:bg-gray-300 disabled:text-gray-500"
-          >
-            {isLoggingIn ? 'Loading...' : 'Login'}
-          </button>
-        </fieldset>
-      </form>
-    </div>
+    <>
+      <HeadContent />
+      <div className="p-2 grid gap-2 place-items-center">
+        <h3 className="text-xl">Login page</h3>
+        {search.redirect ? (
+          <p className="text-red-500">You need to login to access this page.</p>
+        ) : (
+          <p>Login to see all the cool content in here.</p>
+        )}
+
+        <LoginForm onFormSubmit={onFormSubmit} isLoggingIn={isLoggingIn} />
+      </div>
+    </>
   )
 }

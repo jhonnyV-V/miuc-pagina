@@ -15,7 +15,6 @@ import { Route as AuthRouteImport } from './routes/_auth'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo.tanstack-query'
 import { Route as DemoTableRouteImport } from './routes/demo.table'
-import { Route as DemoLoginRouteImport } from './routes/demo.login'
 import { Route as AuthDashboardRouteImport } from './routes/_auth.dashboard'
 import { Route as DemoFormSimpleRouteImport } from './routes/demo.form.simple'
 import { Route as DemoFormAddressRouteImport } from './routes/demo.form.address'
@@ -49,11 +48,6 @@ const DemoTableRoute = DemoTableRouteImport.update({
   path: '/table',
   getParentRoute: () => DemoRoute,
 } as any)
-const DemoLoginRoute = DemoLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => DemoRoute,
-} as any)
 const AuthDashboardRoute = AuthDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -75,7 +69,6 @@ export interface FileRoutesByFullPath {
   '/demo': typeof DemoRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthDashboardRoute
-  '/demo/login': typeof DemoLoginRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -86,7 +79,6 @@ export interface FileRoutesByTo {
   '/demo': typeof DemoRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthDashboardRoute
-  '/demo/login': typeof DemoLoginRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -99,7 +91,6 @@ export interface FileRoutesById {
   '/demo': typeof DemoRouteWithChildren
   '/login': typeof LoginRoute
   '/_auth/dashboard': typeof AuthDashboardRoute
-  '/demo/login': typeof DemoLoginRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -112,7 +103,6 @@ export interface FileRouteTypes {
     | '/demo'
     | '/login'
     | '/dashboard'
-    | '/demo/login'
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/form/address'
@@ -123,7 +113,6 @@ export interface FileRouteTypes {
     | '/demo'
     | '/login'
     | '/dashboard'
-    | '/demo/login'
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/form/address'
@@ -135,7 +124,6 @@ export interface FileRouteTypes {
     | '/demo'
     | '/login'
     | '/_auth/dashboard'
-    | '/demo/login'
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/form/address'
@@ -193,13 +181,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoTableRouteImport
       parentRoute: typeof DemoRoute
     }
-    '/demo/login': {
-      id: '/demo/login'
-      path: '/login'
-      fullPath: '/demo/login'
-      preLoaderRoute: typeof DemoLoginRouteImport
-      parentRoute: typeof DemoRoute
-    }
     '/_auth/dashboard': {
       id: '/_auth/dashboard'
       path: '/dashboard'
@@ -235,7 +216,6 @@ const AuthRouteChildren: AuthRouteChildren = {
 const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
 interface DemoRouteChildren {
-  DemoLoginRoute: typeof DemoLoginRoute
   DemoTableRoute: typeof DemoTableRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
   DemoFormAddressRoute: typeof DemoFormAddressRoute
@@ -243,7 +223,6 @@ interface DemoRouteChildren {
 }
 
 const DemoRouteChildren: DemoRouteChildren = {
-  DemoLoginRoute: DemoLoginRoute,
   DemoTableRoute: DemoTableRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
   DemoFormAddressRoute: DemoFormAddressRoute,
