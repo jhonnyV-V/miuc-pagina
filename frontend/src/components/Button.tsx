@@ -12,7 +12,7 @@ const variantsToCss: Partial<{
 export default function (props: ButtonProps) {
   const { children, variant, className, ...rest } = props
   let baseCss =
-    'border-none py-3 px-6 rounded-lg text-base cursor-pointer mt-4 '
+    'border-none py-3 px-6 rounded-lg text-base cursor-pointer mt-2 '
   if (variant) {
     baseCss += variantsToCss[variant] + (className ?? '')
   }
