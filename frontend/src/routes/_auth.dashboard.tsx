@@ -22,11 +22,6 @@ function DashboardPage() {
             Demo tanstack-query
           </Link>
         </li>
-        <li>
-          <Link to="/demo/table" className="text-blue-500 hover:opacity-75">
-            Demo tabla
-          </Link>
-        </li>
       </ol>
     </section>
   )

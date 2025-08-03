@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite --port 3000",
     "start": "vite --port 3000",
-    "build": "vite build && tsc",
+    "build": "tsc && vite build",
+    "build:debug": "tsc && vite build --debug",
     "serve": "vite preview",
     "test": "vitest run",
     "lint": "eslint",
@@ -13,15 +14,11 @@
     "check": "prettier --write . && eslint --fix"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.6.0",
     "@tailwindcss/vite": "^4.0.6",
-    "@tanstack/match-sorter-utils": "^8.19.4",
-    "@tanstack/react-form": "^1.0.0",
     "@tanstack/react-query": "^5.66.5",
     "@tanstack/react-query-devtools": "^5.66.5",
     "@tanstack/react-router": "^1.121.2",
     "@tanstack/react-router-devtools": "^1.121.2",
-    "@tanstack/react-table": "^8.21.2",
     "@tanstack/router-plugin": "^1.121.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -40,6 +37,7 @@
     "prettier": "^3.5.3",
     "typescript": "^5.7.2",
     "vite": "^6.1.0",
+    "vite-bundle-analyzer": "^1.1.0",
     "vitest": "^3.0.5",
     "web-vitals": "^4.2.4"
   }
