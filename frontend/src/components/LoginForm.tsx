@@ -22,13 +22,33 @@ export function LoginForm({ onFormSubmit, isLoggingIn }: ComponentProps) {
   return (
     <div className="bg-gradient-to-br from-blue-950 to-[#1a3d5d] text-blue-950 min-h-screen min-w-screen flex items-center justify-center">
       <div className="bg-white rounded-xl shadow-lg max-w-md w-full p-8 text-center min-w-md sm:p-6">
-        <img
-          src="../../public/miuc.png"
-          width="250px"
-          height="62.50px"
-          alt="MIUC Ministerio Internacional Uno en Cristo"
-          className="ml-16"
-        />
+        <picture>
+          {/* First choice for the browser */}
+          <source
+            srcSet="/miuc-250.avif"
+            type="image/avif"
+            width="250px"
+            height="62px"
+            className="ml-16"
+          />
+          <source
+            srcSet="/miuc-250.jpeg"
+            type="image/avif"
+            width="250px"
+            height="62px"
+            className="ml-16"
+          />
+          {/* fallback; other attributes, like `alt` and `sizes`, will be shared across all possible images */}
+          <img
+            src="/miuc-250.png"
+            width="250px"
+            height="62px"
+            alt="MIUC Ministerio Internacional Uno en Cristo"
+            className="ml-16"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
         <form onSubmit={onFormSubmit}>
           <fieldset disabled={isLoggingIn} className="pt-2">
             <div className="mb-4 text-left">
