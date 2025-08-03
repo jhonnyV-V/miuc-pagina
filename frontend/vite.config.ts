@@ -16,6 +16,29 @@ export default defineConfig({
   ],
   build: {
     chunkSizeWarningLimit: 14,
+    rollupOptions: {
+      output: {
+        // manualChunks: () => {
+        manualChunks: (moduleId) => {
+          if (moduleId.includes('tanstack+router')) {
+            return '@tanstack-router'
+          }
+          if (moduleId.includes('tanstack+react-router')) {
+            return '@tanstack-react-router'
+          }
+          if (moduleId.includes('tanstack+query')) {
+            return '@tanstack-query'
+          }
+          if (moduleId.includes('react-dom')) {
+            return '@react-dom'
+          }
+          if (moduleId.includes('react')) {
+            return '@react'
+          }
+          return null
+        }
+      }
+    }
   },
   // test: {
   //   globals: true,

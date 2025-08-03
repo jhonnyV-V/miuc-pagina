@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-router'
 
 import * as React from 'react'
-import { z } from 'zod'
+import { object, optional, string } from 'valibot'
 
 import { useAuth } from '../auth'
 import { sleep } from '../utils'
@@ -15,10 +15,13 @@ import { LoginForm } from '@/components/LoginForm'
 
 const fallback = '/dashboard' as const
 
+
+const searchSchema = object({
+  redirect: optional(string())
+})
+
 export const Route = createFileRoute('/login')({
-  validateSearch: z.object({
-    redirect: z.string().optional().catch(''),
-  }),
+  validateSearch: searchSchema,
   beforeLoad: ({ context, search }) => {
     if (context.auth.isAuthenticated) {
       throw redirect({ to: search.redirect || fallback })
