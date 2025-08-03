@@ -11,7 +11,7 @@ import { z } from 'zod'
 
 import { useAuth } from '../auth'
 import { sleep } from '../utils'
-import { LoginForm } from '@/components/demo.login'
+import { LoginForm } from '@/components/LoginForm'
 
 const fallback = '/dashboard' as const
 

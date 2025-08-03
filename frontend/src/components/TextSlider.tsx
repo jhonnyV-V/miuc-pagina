@@ -15,7 +15,7 @@ function changeContent(contentRef: HTMLDivElement, content: Array<string>) {
     contentRef.style.opacity = '1'
   }, 500)
 }
-let interval = 0
+let interval: ReturnType<typeof setInterval>
 
 function TextSlider(props: TextSliderProps) {
   const ref = useRef<HTMLDivElement>(null)

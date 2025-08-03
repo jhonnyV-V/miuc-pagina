@@ -16,22 +16,6 @@ function DashboardPage() {
       <ol className="list-disc list-inside px-2">
         <li>
           <Link
-            to="/demo/form/address"
-            className="text-blue-500 hover:opacity-75"
-          >
-            Demo formulario de direcciones
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/demo/form/simple"
-            className="text-blue-500 hover:opacity-75"
-          >
-            Demo formulario simple
-          </Link>
-        </li>
-        <li>
-          <Link
             to="/demo/tanstack-query"
             className="text-blue-500 hover:opacity-75"
           >
